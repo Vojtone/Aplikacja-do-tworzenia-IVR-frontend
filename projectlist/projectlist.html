@@ -1,0 +1,30 @@
+<div id="projects">
+    <div id="create_project">
+        <form role="form" (submit)="create_project($event, project_name.value)">
+            
+            <div class="form-group">
+                <label for="project_name"></label>
+                <input type="text" #project_name (change)="0" (keyup)="0" class="form-control" id="project_name" placeholder="nazwa projektu">
+            </div>
+
+            <input type="submit" [disabled]="project_name.value == ''" value="Utwórz projekt">
+            <div style="color: red; text-align: left; padding-top: 10px;">{{repeated_name_error}}</div>
+        </form>
+    </div>
+
+    <div id="project_list">
+        <h1>Twoje projekty</h1>
+            {{empty_info}}
+        <ul>
+            <li *ngFor="let project of project_array" style="size: 20px; font-size: 20px; text-align: center;" (click)="load_project($event, project.name, project.id)">
+                {{project.name}}
+            </li>
+        </ul>
+    </div>
+
+    <div style="clear:both"></div>
+
+</div>
+
+<div style="color: green; text-align: left; padding: 10px;" *ngIf="change_password_info">{{change_password_info}}</div>
+<div style="color: green; text-align: left; padding: 10px;" *ngIf="delete_project_info">{{delete_project_info}}</div>

@@ -1,0 +1,14 @@
+  <div id="home">
+
+    <div id="menubar">
+      <div style="cursor: pointer;"><h1><a class="btn btn-primary btn-lg" role="button" (click)="witaj()">Witaj</a></h1></div>
+      <h3 *ngIf="email">{{email}}</h3>
+      <div class="menubar_element"><p><a class="btn btn-primary btn-lg" role="button" (click)="go_to_change_password()">Zmień hasło</a></p></div>
+      <div class="menubar_element"><p><a class="btn btn-primary btn-lg" role="button" (click)="go_to_delete_account()">Usuń konto</a></p></div>
+      <div class="menubar_element"><p><a class="btn btn-primary btn-lg" role="button" (click)="logout()">Wyloguj się</a></p></div>
+
+    </div>
+
+    <router-outlet></router-outlet>
+
+  </div>

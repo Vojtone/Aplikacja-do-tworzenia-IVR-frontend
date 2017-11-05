@@ -1,0 +1,79 @@
+
+<div id="project">
+    <h3>Projekt: {{project_name}} </h3>
+    <div style="cursor: pointer;"><p><a class="btn btn-primary btn-lg" role="button" (click)="save_project()">Zapisz projekt</a></p></div>
+    <div style="cursor: pointer;"><p><a class="btn btn-primary btn-lg" role="button" (click)="go_to_project_list()">Powrót do listy projektów</a></p></div>
+    <div style="cursor: pointer;"><p><a class="btn btn-primary btn-lg" role="button" (click)="delete_project()">Usuń projekt</a></p></div>
+    <div style="cursor: pointer;"><p><a class="btn btn-primary btn-lg" role="button" (click)="logout()">Wyloguj się</a></p></div>
+    <!--<div style="cursor: pointer;"><p><a class="btn btn-primary btn-lg" role="button" (click)="change_html()">html ch</a></p></div>-->
+    
+    <div id="network-popUp">
+      <span id="operation">Edytor treści</span> <br>
+      <textarea id="node-label" placeholder="Treść wpisana tutaj zostanie użyta przy dodawaniu lub edytowaniu bloczka."></textarea>
+      <br>
+
+      <div>
+        <select id="select_node_type" style="margin-top: 10px; width: 220px;">
+          <option selected id="select_machine">Bloczek automatu</option>
+          <option id="select_user">Bloczek użytkownika</option>
+          <option id="select_redirect">Bloczek przekierowania</option>
+          <option id="select_stop">Bloczek stop</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div style="cursor: pointer;"><p><a class="btn btn-primary btn-lg" role="button" (click)="clusterByConnection()">Utwórz grupę bloczków</a></p></div>
+
+
+    <div id="configuration">
+      <h1>Konfiguracja</h1>
+
+      <form role="form" (submit)="update_config($event, voip_login.value, password.value, domain.value, ip.value, phone.value)">
+        <div class="form-group">
+          <label for="voip_login"></label>
+          <input type="text" #voip_login (change)="0" (keyup)="0" class="form-control" id="voip_login" placeholder="login voip" value="{{voip_login_get}}">
+        </div>
+        <div class="form-group">
+          <label for="password"></label> <!--voip_password-->
+          <input type="password" #password (change)="0" (keyup)="0" class="form-control" id="password" placeholder="hasło voip" value="{{voip_password_get}}">
+        </div>
+        <div class="form-group">
+          <label for="domain"></label>
+          <input type="text" #domain (change)="0" (keyup)="0" class="form-control" id="domain" placeholder="domena" value="{{domain_get}}">
+        </div>
+        <div class="form-group">
+          <label for="ip"></label>
+          <input type="text" #ip (change)="0" (keyup)="0" class="form-control" id="ip" placeholder="IP" value="{{ip_get}}">
+        </div>
+        <div class="form-group">
+          <label for="phone"></label>
+          <input type="text" #phone (change)="0" (keyup)="0" class="form-control" id="phone" placeholder="numer telefonu" value="{{phone_get}}">
+        </div>
+        <input type="submit" [disabled]="" value="Aktualizuj dane">
+          <div style="color: red; text-align: center; padding: 10px;">{{errors}}</div>
+      </form>
+
+    </div>
+    
+</div>
+
+
+<!--
+  <div id="network-popUp" *ngIf="popUp===true">
+  <span id="operation">Edit Node</span> <br>
+  <table style="margin:auto;"><tbody>
+    <tr>
+      <td>treść</td><td><input #label id="node-label" value="wpisz tu"></td>
+    </tr></tbody></table>
+  <input value="save" id="saveButton" type="button" (click)="l(label.value)">
+  <input value="cancel" id="cancelButton" type="button">
+</div>
+-->
+
+
+
+<div id="mynetwork" style="color: black;"></div>
+
+
+
